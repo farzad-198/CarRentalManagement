@@ -8,5 +8,6 @@ namespace CarRentalManagement
 {
     internal class Rental
     {
+        public int MyProperty { get; set; }
     }
 }
