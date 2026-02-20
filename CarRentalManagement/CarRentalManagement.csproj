@@ -63,6 +63,7 @@
       <DependentUpon>CarDBDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Cars.cs" />
+    <Compile Include="Categorys.cs" />
     <Compile Include="Customer.cs">
       <SubType>Form</SubType>
     </Compile>
