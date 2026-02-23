@@ -63,6 +63,7 @@
             this.carDBDataSet1 = new CarRentalManagement.CarDBDataSet1();
             this.carsTableAdapter = new CarRentalManagement.CarDBDataSet1TableAdapters.CarsTableAdapter();
             this.carDBDataSet11 = new CarRentalManagement.CarDBDataSet1();
+            this.customersTableAdapter1 = new CarRentalManagement.CarDBDataSetTableAdapters.CustomersTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -107,10 +108,11 @@
             this.lblcar.AutoSize = true;
             this.lblcar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcar.ForeColor = System.Drawing.Color.Yellow;
-            this.lblcar.Location = new System.Drawing.Point(193, 20);
+            this.lblcar.Location = new System.Drawing.Point(178, 20);
             this.lblcar.Name = "lblcar";
-            this.lblcar.Size = new System.Drawing.Size(0, 32);
+            this.lblcar.Size = new System.Drawing.Size(81, 32);
             this.lblcar.TabIndex = 19;
+            this.lblcar.Text = "label";
             // 
             // txtStatus
             // 
@@ -295,7 +297,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1335, 69);
+            this.panel2.Size = new System.Drawing.Size(1205, 69);
             this.panel2.TabIndex = 4;
             // 
             // label1
@@ -316,7 +318,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Location = new System.Drawing.Point(471, 69);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(864, 419);
+            this.pictureBox1.Size = new System.Drawing.Size(734, 419);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -344,7 +346,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(864, 504);
+            this.dataGridView1.Size = new System.Drawing.Size(734, 504);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -424,11 +426,15 @@
             this.carDBDataSet11.DataSetName = "CarDBDataSet1";
             this.carDBDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // customersTableAdapter1
+            // 
+            this.customersTableAdapter1.ClearBeforeFill = true;
+            // 
             // Car
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1335, 929);
+            this.ClientSize = new System.Drawing.Size(1205, 929);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
@@ -486,5 +492,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblcar;
         private CarDBDataSet1 carDBDataSet11;
+        private CarDBDataSetTableAdapters.CustomersTableAdapter customersTableAdapter1;
     }
 }

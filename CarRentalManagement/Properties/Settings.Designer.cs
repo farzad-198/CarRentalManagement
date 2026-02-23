@@ -33,5 +33,16 @@ namespace CarRentalManagement.Properties {
                 return ((string)(this["CarDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FARZAD\\SQLEXPRESS;Initial Catalog=CarRental.Db;Integrated Security=Tr" +
+            "ue;Encrypt=True;TrustServerCertificate=True")]
+        public string CarRental_DbConnectionString {
+            get {
+                return ((string)(this["CarRental_DbConnectionString"]));
+            }
+        }
     }
 }

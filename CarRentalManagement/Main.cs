@@ -28,5 +28,11 @@ namespace CarRentalManagement
             Car car = new Car();
             car.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            category.ShowDialog();
+        }
     }
 }

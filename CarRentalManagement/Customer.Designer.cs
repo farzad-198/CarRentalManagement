@@ -33,6 +33,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblId = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carDBDataSet = new CarRentalManagement.CarDBDataSet();
             this.customersTableAdapter = new CarRentalManagement.CarDBDataSetTableAdapters.CustomersTableAdapter();
-            this.lblId = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -118,6 +118,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(478, 716);
             this.panel1.TabIndex = 3;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.ForeColor = System.Drawing.Color.Yellow;
+            this.lblId.Location = new System.Drawing.Point(199, 28);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(81, 32);
+            this.lblId.TabIndex = 13;
+            this.lblId.Text = "label";
             // 
             // pictureBox2
             // 
@@ -249,7 +260,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(8, 20);
+            this.label2.Location = new System.Drawing.Point(7, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(186, 34);
             this.label2.TabIndex = 0;
@@ -346,16 +357,6 @@
             // customersTableAdapter
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.ForeColor = System.Drawing.Color.White;
-            this.lblId.Location = new System.Drawing.Point(191, 22);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(0, 38);
-            this.lblId.TabIndex = 13;
             // 
             // Customer
             // 
