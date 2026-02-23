@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CarRentalManagement
 {
-    public partial class Category : Form
+    public partial class Payment : Form
     {
-        public Category()
+        public Payment()
         {
             InitializeComponent();
         }
@@ -26,6 +26,18 @@ namespace CarRentalManagement
         {
             // TODO: This line of code loads data into the '_CarRental_DbDataSet.Categorys' table. You can move, or remove it, as needed.
             this.categorysTableAdapter.Fill(this._CarRental_DbDataSet.Categorys);
+
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Payment
+            // 
+            this.ClientSize = new System.Drawing.Size(805, 609);
+            this.Name = "Payment";
+            this.ResumeLayout(false);
 
         }
     }

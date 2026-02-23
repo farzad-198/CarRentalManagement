@@ -31,7 +31,7 @@ namespace CarRentalManagement
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Category category = new Category();
+            Payment category = new Payment();
             category.ShowDialog();
         }
     }
