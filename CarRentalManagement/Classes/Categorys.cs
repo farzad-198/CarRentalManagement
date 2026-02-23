@@ -8,6 +8,8 @@ namespace CarRentalManagement
 {
     internal class Categorys
     {
-        public int MyProperty { get; set; }
+        public int CategoryID { get; set; }
+        public int CarName { get; set; }
+        public int CategoryName { get; set; }
     }
 }
