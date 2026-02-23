@@ -32,27 +32,27 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categorysBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._CarRental_DbDataSet = new CarRentalManagement._CarRental_DbDataSet();
             this.lblId = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this._CarRental_DbDataSet = new CarRentalManagement._CarRental_DbDataSet();
-            this.categorysBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtCategoryName = new System.Windows.Forms.TextBox();
+            this.txtCarName = new System.Windows.Forms.TextBox();
+            this.lblCategoryName = new System.Windows.Forms.Label();
+            this.lblCarName = new System.Windows.Forms.Label();
+            this.lblCategoryId = new System.Windows.Forms.Label();
             this.categorysTableAdapter = new CarRentalManagement._CarRental_DbDataSetTableAdapters.CategorysTableAdapter();
-            this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._CarRental_DbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorysBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._CarRental_DbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -89,16 +89,67 @@
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtCustomerName);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txtCategoryName);
+            this.panel1.Controls.Add(this.txtCarName);
+            this.panel1.Controls.Add(this.lblCategoryName);
+            this.panel1.Controls.Add(this.lblCarName);
+            this.panel1.Controls.Add(this.lblCategoryId);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 64);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(881, 668);
             this.panel1.TabIndex = 6;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.categoryIDDataGridViewTextBoxColumn,
+            this.carNameDataGridViewTextBoxColumn,
+            this.categoryNameDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.categorysBindingSource;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 397);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(877, 267);
+            this.dataGridView1.TabIndex = 14;
+            // 
+            // categoryIDDataGridViewTextBoxColumn
+            // 
+            this.categoryIDDataGridViewTextBoxColumn.DataPropertyName = "CategoryID";
+            this.categoryIDDataGridViewTextBoxColumn.HeaderText = "CategoryID";
+            this.categoryIDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.categoryIDDataGridViewTextBoxColumn.Name = "categoryIDDataGridViewTextBoxColumn";
+            this.categoryIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // carNameDataGridViewTextBoxColumn
+            // 
+            this.carNameDataGridViewTextBoxColumn.DataPropertyName = "CarName";
+            this.carNameDataGridViewTextBoxColumn.HeaderText = "CarName";
+            this.carNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.carNameDataGridViewTextBoxColumn.Name = "carNameDataGridViewTextBoxColumn";
+            // 
+            // categoryNameDataGridViewTextBoxColumn
+            // 
+            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
+            // 
+            // categorysBindingSource
+            // 
+            this.categorysBindingSource.DataMember = "Categorys";
+            this.categorysBindingSource.DataSource = this._CarRental_DbDataSet;
+            // 
+            // _CarRental_DbDataSet
+            // 
+            this._CarRental_DbDataSet.DataSetName = "_CarRental_DbDataSet";
+            this._CarRental_DbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblId
             // 
@@ -148,112 +199,61 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
-            // txtEmail
+            // txtCategoryName
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(404, 210);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(253, 32);
-            this.txtEmail.TabIndex = 7;
+            this.txtCategoryName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoryName.Location = new System.Drawing.Point(404, 210);
+            this.txtCategoryName.Name = "txtCategoryName";
+            this.txtCategoryName.Size = new System.Drawing.Size(253, 32);
+            this.txtCategoryName.TabIndex = 7;
             // 
-            // txtCustomerName
+            // txtCarName
             // 
-            this.txtCustomerName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.Location = new System.Drawing.Point(404, 139);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(253, 32);
-            this.txtCustomerName.TabIndex = 6;
+            this.txtCarName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarName.Location = new System.Drawing.Point(404, 139);
+            this.txtCarName.Name = "txtCarName";
+            this.txtCarName.Size = new System.Drawing.Size(253, 32);
+            this.txtCarName.TabIndex = 6;
             // 
-            // label4
+            // lblCategoryName
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Yellow;
-            this.label4.Location = new System.Drawing.Point(215, 207);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(170, 29);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "CategoryName";
+            this.lblCategoryName.AutoSize = true;
+            this.lblCategoryName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCategoryName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryName.ForeColor = System.Drawing.Color.Yellow;
+            this.lblCategoryName.Location = new System.Drawing.Point(215, 207);
+            this.lblCategoryName.Name = "lblCategoryName";
+            this.lblCategoryName.Size = new System.Drawing.Size(170, 29);
+            this.lblCategoryName.TabIndex = 2;
+            this.lblCategoryName.Text = "CategoryName";
             // 
-            // label3
+            // lblCarName
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(215, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 29);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "CarName";
+            this.lblCarName.AutoSize = true;
+            this.lblCarName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCarName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarName.ForeColor = System.Drawing.Color.Yellow;
+            this.lblCarName.Location = new System.Drawing.Point(215, 139);
+            this.lblCarName.Name = "lblCarName";
+            this.lblCarName.Size = new System.Drawing.Size(111, 29);
+            this.lblCarName.TabIndex = 1;
+            this.lblCarName.Text = "CarName";
             // 
-            // label2
+            // lblCategoryId
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(214, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(178, 34);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "CategoryID";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.categoryIDDataGridViewTextBoxColumn,
-            this.carNameDataGridViewTextBoxColumn,
-            this.categoryNameDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.categorysBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 397);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(877, 267);
-            this.dataGridView1.TabIndex = 14;
-            // 
-            // _CarRental_DbDataSet
-            // 
-            this._CarRental_DbDataSet.DataSetName = "_CarRental_DbDataSet";
-            this._CarRental_DbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categorysBindingSource
-            // 
-            this.categorysBindingSource.DataMember = "Categorys";
-            this.categorysBindingSource.DataSource = this._CarRental_DbDataSet;
+            this.lblCategoryId.AutoSize = true;
+            this.lblCategoryId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCategoryId.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCategoryId.Location = new System.Drawing.Point(214, 76);
+            this.lblCategoryId.Name = "lblCategoryId";
+            this.lblCategoryId.Size = new System.Drawing.Size(178, 34);
+            this.lblCategoryId.TabIndex = 0;
+            this.lblCategoryId.Text = "CategoryID";
             // 
             // categorysTableAdapter
             // 
             this.categorysTableAdapter.ClearBeforeFill = true;
-            // 
-            // categoryIDDataGridViewTextBoxColumn
-            // 
-            this.categoryIDDataGridViewTextBoxColumn.DataPropertyName = "CategoryID";
-            this.categoryIDDataGridViewTextBoxColumn.HeaderText = "CategoryID";
-            this.categoryIDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.categoryIDDataGridViewTextBoxColumn.Name = "categoryIDDataGridViewTextBoxColumn";
-            this.categoryIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // carNameDataGridViewTextBoxColumn
-            // 
-            this.carNameDataGridViewTextBoxColumn.DataPropertyName = "CarName";
-            this.carNameDataGridViewTextBoxColumn.HeaderText = "CarName";
-            this.carNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.carNameDataGridViewTextBoxColumn.Name = "carNameDataGridViewTextBoxColumn";
-            // 
-            // categoryNameDataGridViewTextBoxColumn
-            // 
-            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
             // 
             // Category
             // 
@@ -270,8 +270,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._CarRental_DbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorysBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._CarRental_DbDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,11 +285,11 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtCustomerName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCategoryName;
+        private System.Windows.Forms.TextBox txtCarName;
+        private System.Windows.Forms.Label lblCategoryName;
+        private System.Windows.Forms.Label lblCarName;
+        private System.Windows.Forms.Label lblCategoryId;
         private System.Windows.Forms.DataGridView dataGridView1;
         private _CarRental_DbDataSet _CarRental_DbDataSet;
         private System.Windows.Forms.BindingSource categorysBindingSource;
