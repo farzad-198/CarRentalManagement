@@ -63,6 +63,16 @@ namespace CarRentalManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _360_F_690162241_exoNYM5X6zdtUWLp0G6SWXHNwdZRFsqc {
+            get {
+                object obj = ResourceManager.GetObject("360_F_690162241_exoNYM5X6zdtUWLp0G6SWXHNwdZRFsqc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bild_car {
             get {
                 object obj = ResourceManager.GetObject("bild car", resourceCulture);
