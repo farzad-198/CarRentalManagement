@@ -34,5 +34,10 @@ namespace CarRentalManagement
             Payment category = new Payment();
             category.ShowDialog();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

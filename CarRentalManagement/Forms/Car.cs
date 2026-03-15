@@ -18,34 +18,30 @@ namespace CarRentalManagement
         {
             InitializeComponent();
         }
-        private void loadData()
+        private void LoadData()
         {
-            string query = "select *From Cars;";
-            DataTable dataTable = SqlHelper.ExecuteQurey(query);
-            dataGridView1.DataSource = dataTable;
-
-
+            //string query = "select *From Cars;";
+            //DataTable dataTable = SqlHelper.ExecuteQurey(query);
+            //dataGridView1.DataSource = dataTable;
+            using (CarDbContext db = new CarDbContext())
+            { 
+            var cars= db.Cars.Select(c => new 
+                { 
+                c.lblCarID,
+                c.lblCarName,
+                c.lblModel,
+                c.lblPlateNumber,
+                c.lblColor,
+                c.lblDailyRate,
+                c.lblStatus
+                }).ToList();
+                dataGridView1.DataSource = cars;
+            }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Car_Load(object sender, EventArgs e)
         {
-            
-            this.carsTableAdapter.Fill(this.carDBDataSet1.Cars);
 
-        }
-
-        private void lblStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+            LoadData();
 
         }
 
@@ -91,7 +87,7 @@ namespace CarRentalManagement
             txtColor.Text = "";
             txtDailyrate.Text = "";
             txtStatus.Text = "";
-            loadData();
+            LoadData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -140,7 +136,7 @@ namespace CarRentalManagement
                 MessageBoxIcon.Information
             );
 
-            loadData();
+            LoadData();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -190,7 +186,7 @@ namespace CarRentalManagement
             txtDailyrate.Text = "";
             txtStatus.Text = "";
 
-            loadData();
+            LoadData();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

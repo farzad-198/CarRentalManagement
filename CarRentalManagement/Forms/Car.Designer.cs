@@ -101,7 +101,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(471, 860);
             this.panel1.TabIndex = 5;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+           
             // 
             // lblcar
             // 
@@ -140,7 +140,7 @@
             this.lblStatus.Size = new System.Drawing.Size(79, 29);
             this.lblStatus.TabIndex = 16;
             this.lblStatus.Text = "Status";
-            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
+          
             // 
             // lblDailyRate
             // 
@@ -321,7 +321,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(734, 419);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+           
             // 
             // dataGridView1
             // 
