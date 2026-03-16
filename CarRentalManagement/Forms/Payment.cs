@@ -21,7 +21,7 @@ namespace CarRentalManagement
         private Button btnAdd;
         private TextBox txtPhone;
         private TextBox txtEmail;
-        private TextBox txtCustomerName;
+        private TextBox txtRentalId;
         private Label lblPaymethod;
         private Label lblAmount;
         private Label lblCustomerName;
@@ -68,7 +68,7 @@ namespace CarRentalManagement
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.txtRentalId = new System.Windows.Forms.TextBox();
             this.lblPaymethod = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
@@ -125,7 +125,7 @@ namespace CarRentalManagement
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.txtPhone);
             this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtCustomerName);
+            this.panel1.Controls.Add(this.txtRentalId);
             this.panel1.Controls.Add(this.lblPaymethod);
             this.panel1.Controls.Add(this.lblAmount);
             this.panel1.Controls.Add(this.lblCustomerName);
@@ -210,13 +210,13 @@ namespace CarRentalManagement
             this.txtEmail.Size = new System.Drawing.Size(253, 32);
             this.txtEmail.TabIndex = 7;
             // 
-            // txtCustomerName
+            // txtRentalId
             // 
-            this.txtCustomerName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.Location = new System.Drawing.Point(197, 88);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(253, 32);
-            this.txtCustomerName.TabIndex = 6;
+            this.txtRentalId.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRentalId.Location = new System.Drawing.Point(197, 88);
+            this.txtRentalId.Name = "txtRentalId";
+            this.txtRentalId.Size = new System.Drawing.Size(253, 32);
+            this.txtRentalId.TabIndex = 6;
             // 
             // lblPaymethod
             // 
@@ -247,9 +247,9 @@ namespace CarRentalManagement
             this.lblCustomerName.ForeColor = System.Drawing.Color.Yellow;
             this.lblCustomerName.Location = new System.Drawing.Point(8, 89);
             this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.Size = new System.Drawing.Size(176, 29);
+            this.lblCustomerName.Size = new System.Drawing.Size(126, 35);
             this.lblCustomerName.TabIndex = 1;
-            this.lblCustomerName.Text = "CustomerName";
+            this.lblCustomerName.Text = "RentalID";
             // 
             // lblPaymentId
             // 
