@@ -1,13 +1,5 @@
-﻿using projekt_1;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRentalManagement
@@ -18,39 +10,54 @@ namespace CarRentalManagement
         {
             InitializeComponent();
         }
+
         private void LoadData()
         {
-            //string query = "select *From Cars;";
-            //DataTable dataTable = SqlHelper.ExecuteQurey(query);
-            //dataGridView1.DataSource = dataTable;
-            using (CarDbContext db = new CarDbContext())
-            { 
-            var cars= db.Cars.Select(c => new 
-                { 
-                c.lblCarID,
-                c.lblCarName,
-                c.lblModel,
-                c.lblPlateNumber,
-                c.lblColor,
-                c.lblDailyRate,
-                c.lblStatus
-                }).ToList();
-                dataGridView1.DataSource = cars;
+            using (var db = new CarRentalEntities())
+            {
+                var carList = db.Cars
+                    .Select(c => new
+                    {
+                        c.CarID,
+                        c.CarName,
+                        c.Model,
+                        c.PlateNumber,
+                        c.Color,
+                        c.DailyRate,
+                        c.Status
+                    })
+                    .ToList();
+
+                dataGridView1.DataSource = carList;
             }
         }
+
+        private void ClearFields()
+        {
+            lblcar.Text = "";
+            txtCarName.Text = "";
+            txtModel.Text = "";
+            txtplateNumber.Text = "";
+            txtColor.Text = "";
+            txtDailyrate.Text = "";
+            txtStatus.Text = "";
+        }
+
         private void Car_Load(object sender, EventArgs e)
         {
-
             LoadData();
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCarName.Text))
+            if (string.IsNullOrWhiteSpace(txtCarName.Text) ||
+                string.IsNullOrWhiteSpace(txtModel.Text) ||
+                string.IsNullOrWhiteSpace(txtplateNumber.Text) ||
+                string.IsNullOrWhiteSpace(txtDailyrate.Text) ||
+                string.IsNullOrWhiteSpace(txtStatus.Text))
             {
                 MessageBox.Show(
-                    "Car name is required.",
+                    "Please fill all required fields.",
                     "Validation Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -58,35 +65,52 @@ namespace CarRentalManagement
                 return;
             }
 
-            string query =
-            @"INSERT INTO Cars (CarName,Model,PlateNumber,Color,DailyRate,Status )
-            VALUES (@carname,@model,@platenumber,@color,@dailyrate,@status)";
-
-            SqlParameter[] sqlParameters =
+            if (!decimal.TryParse(txtDailyrate.Text.Trim(), out decimal dailyRate))
             {
+                MessageBox.Show(
+                    "Daily Rate must be a valid number.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
 
-        new SqlParameter("@Carname",txtCarName.Text),
-        new SqlParameter("@Model",txtModel.Text),
-        new SqlParameter("@platenumber",txtplateNumber.Text),
-        new SqlParameter("@color",txtColor.Text),
-        new SqlParameter("@dailyrate",txtDailyrate.Text),
-        new SqlParameter("@status",txtStatus.Text),
-    };
+            using (var db = new CarRentalEntities())
+            {
+                bool plateExists = db.Cars.Any(c => c.PlateNumber == txtplateNumber.Text.Trim());
 
-            SqlHelper.ExecuteNonQuery(query, sqlParameters);
+                if (plateExists)
+                {
+                    MessageBox.Show(
+                        "Plate Number already exists.",
+                        "Duplicate Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
+
+                Cars newCar = new Cars();
+                newCar.CarName = txtCarName.Text.Trim();
+                newCar.Model = txtModel.Text.Trim();
+                newCar.PlateNumber = txtplateNumber.Text.Trim();
+                newCar.Color = txtColor.Text.Trim();
+                newCar.DailyRate = dailyRate;
+                newCar.Status = txtStatus.Text.Trim();
+
+                db.Cars.Add(newCar);
+                db.SaveChanges();
+            }
 
             MessageBox.Show(
-                "New Car has been registered successfully.",
+                "New car has been added successfully.",
                 "Insert Completed",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
-            txtCarName.Text = "";
-            txtModel.Text = "";
-            txtplateNumber.Text = "";
-            txtColor.Text = "";
-            txtDailyrate.Text = "";
-            txtStatus.Text = "";
+
+            ClearFields();
             LoadData();
         }
 
@@ -95,39 +119,46 @@ namespace CarRentalManagement
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show(
-                    "Please select a Car first.",
+                    "Please select a car first.",
                     "No Selection",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
+                    MessageBoxIcon.Warning
                 );
                 return;
             }
 
-            int carID =
-                (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+            int carId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["CarID"].Value);
 
             DialogResult result = MessageBox.Show(
-                "Are you sure you want to delete this Car?",
+                "Are you sure you want to delete this car?",
                 "Confirm Delete",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
             );
 
             if (result != DialogResult.Yes)
-                return;
-
-            string query =
-                "DELETE FROM Cars WHERE CarID = @id";
-
-            SqlParameter[] sqlParameters =
             {
-        new SqlParameter("@id", SqlDbType.Int)
-        {
-            Value = carID
-        }
-    };
+                return;
+            }
 
-            SqlHelper.ExecuteNonQuery(query, sqlParameters);
+            using (var db = new CarRentalEntities())
+            {
+                Cars car = db.Cars.FirstOrDefault(c => c.CarID == carId);
+
+                if (car == null)
+                {
+                    MessageBox.Show(
+                        "Car not found.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return;
+                }
+
+                db.Cars.Remove(car);
+                db.SaveChanges();
+            }
 
             MessageBox.Show(
                 "Car deleted successfully.",
@@ -136,6 +167,7 @@ namespace CarRentalManagement
                 MessageBoxIcon.Information
             );
 
+            ClearFields();
             LoadData();
         }
 
@@ -144,33 +176,66 @@ namespace CarRentalManagement
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show(
-                    "Please select a Car.",
+                    "Please select a car first.",
                     "No Selection",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
+                    MessageBoxIcon.Warning
                 );
                 return;
             }
 
-
-            string query =
-            @"UPDATE Cars  SET CarName = @carname,Model = @model,
-            PlateNumber = @plateNumber,Color = @color,
-            DailyRate=@dailyrate,Status=@status
-            WHERE CarID = @id";
-
-            SqlParameter[] sqlParameters =
+            if (!decimal.TryParse(txtDailyrate.Text.Trim(), out decimal dailyRate))
             {
-        new SqlParameter("@id", (int)dataGridView1.SelectedRows[0].Cells[0].Value),
-        new SqlParameter("@carname",txtCarName.Text),
-        new SqlParameter("@model",txtModel.Text),
-        new SqlParameter("@plateNumber",txtplateNumber.Text),
-        new SqlParameter("@color",txtColor.Text),
-        new SqlParameter("@dailyrate",txtDailyrate.Text),
-        new SqlParameter("@status",txtStatus.Text),
-    };
+                MessageBox.Show(
+                    "Daily Rate must be a valid number.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
 
-            SqlHelper.ExecuteNonQuery(query, sqlParameters);
+            int carId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["CarID"].Value);
+
+            using (var db = new CarRentalEntities())
+            {
+                Cars car = db.Cars.FirstOrDefault(c => c.CarID == carId);
+
+                if (car == null)
+                {
+                    MessageBox.Show(
+                        "Car not found.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return;
+                }
+
+                string newPlateNumber = txtplateNumber.Text.Trim();
+
+                bool plateExists = db.Cars.Any(c => c.PlateNumber == newPlateNumber && c.CarID != carId);
+
+                if (plateExists)
+                {
+                    MessageBox.Show(
+                        "Another car already has this Plate Number.",
+                        "Duplicate Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
+
+                car.CarName = txtCarName.Text.Trim();
+                car.Model = txtModel.Text.Trim();
+                car.PlateNumber = newPlateNumber;
+                car.Color = txtColor.Text.Trim();
+                car.DailyRate = dailyRate;
+                car.Status = txtStatus.Text.Trim();
+
+                db.SaveChanges();
+            }
 
             MessageBox.Show(
                 "Car updated successfully.",
@@ -178,27 +243,27 @@ namespace CarRentalManagement
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
-            lblcar.Text = "";
-            txtCarName.Text = "";
-            txtModel.Text = "";
-            txtplateNumber.Text = "";
-            txtColor.Text = "";
-            txtDailyrate.Text = "";
-            txtStatus.Text = "";
 
+            ClearFields();
             LoadData();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            lblcar.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            txtCarName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            txtModel.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            txtplateNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            txtColor.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            txtDailyrate.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-            txtStatus.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+            lblcar.Text = row.Cells["CarID"].Value?.ToString();
+            txtCarName.Text = row.Cells["CarName"].Value?.ToString();
+            txtModel.Text = row.Cells["Model"].Value?.ToString();
+            txtplateNumber.Text = row.Cells["PlateNumber"].Value?.ToString();
+            txtColor.Text = row.Cells["Color"].Value?.ToString();
+            txtDailyrate.Text = row.Cells["DailyRate"].Value?.ToString();
+            txtStatus.Text = row.Cells["Status"].Value?.ToString();
         }
     }
 }
-

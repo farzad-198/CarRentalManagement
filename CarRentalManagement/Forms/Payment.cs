@@ -62,6 +62,7 @@ namespace CarRentalManagement
             this.lalpay = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPayId = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -74,22 +75,21 @@ namespace CarRentalManagement
             this.lblPaymentId = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.carDBDataSet2 = new CarRentalManagement.CarDBDataSet2();
-            this.paymentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paymentsTableAdapter = new CarRentalManagement.CarDBDataSet2TableAdapters.PaymentsTableAdapter();
             this.paymentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coustomerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pymentMethodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carDBDataSet2 = new CarRentalManagement.CarDBDataSet2();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.paymentsTableAdapter = new CarRentalManagement.CarDBDataSet2TableAdapters.PaymentsTableAdapter();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -100,7 +100,7 @@ namespace CarRentalManagement
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1126, 63);
+            this.panel2.Size = new System.Drawing.Size(1161, 63);
             this.panel2.TabIndex = 5;
             // 
             // lalpay
@@ -147,6 +147,16 @@ namespace CarRentalManagement
             this.lblPayId.TabIndex = 13;
             this.lblPayId.Text = "label";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::CarRentalManagement.Properties.Resources.Car_Logo;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(47, 363);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(384, 237);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.MidnightBlue;
@@ -182,6 +192,7 @@ namespace CarRentalManagement
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtPhone
             // 
@@ -275,43 +286,8 @@ namespace CarRentalManagement
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(653, 302);
+            this.dataGridView1.Size = new System.Drawing.Size(688, 302);
             this.dataGridView1.TabIndex = 9;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::CarRentalManagement.Properties.Resources._360_F_690162241_exoNYM5X6zdtUWLp0G6SWXHNwdZRFsqc;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Location = new System.Drawing.Point(473, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(653, 325);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::CarRentalManagement.Properties.Resources.Car_Logo;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(47, 363);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(384, 237);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // carDBDataSet2
-            // 
-            this.carDBDataSet2.DataSetName = "CarDBDataSet2";
-            this.carDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // paymentsBindingSource
-            // 
-            this.paymentsBindingSource.DataMember = "Payments";
-            this.paymentsBindingSource.DataSource = this.carDBDataSet2;
-            // 
-            // paymentsTableAdapter
-            // 
-            this.paymentsTableAdapter.ClearBeforeFill = true;
             // 
             // paymentIDDataGridViewTextBoxColumn
             // 
@@ -342,9 +318,34 @@ namespace CarRentalManagement
             this.pymentMethodDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.pymentMethodDataGridViewTextBoxColumn.Name = "pymentMethodDataGridViewTextBoxColumn";
             // 
+            // paymentsBindingSource
+            // 
+            this.paymentsBindingSource.DataMember = "Payments";
+            this.paymentsBindingSource.DataSource = this.carDBDataSet2;
+            // 
+            // carDBDataSet2
+            // 
+            this.carDBDataSet2.DataSetName = "CarDBDataSet2";
+            this.carDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::CarRentalManagement.Properties.Resources._360_F_690162241_exoNYM5X6zdtUWLp0G6SWXHNwdZRFsqc;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(473, 63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(688, 325);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // paymentsTableAdapter
+            // 
+            this.paymentsTableAdapter.ClearBeforeFill = true;
+            // 
             // Payment
             // 
-            this.ClientSize = new System.Drawing.Size(1126, 690);
+            this.ClientSize = new System.Drawing.Size(1161, 690);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.pictureBox1);
@@ -356,11 +357,11 @@ namespace CarRentalManagement
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,6 +370,11 @@ namespace CarRentalManagement
         {
             // TODO: This line of code loads data into the 'carDBDataSet2.Payments' table. You can move, or remove it, as needed.
             this.paymentsTableAdapter.Fill(this.carDBDataSet2.Payments);
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
 
         }
     }
