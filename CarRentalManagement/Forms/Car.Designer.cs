@@ -64,6 +64,9 @@
             this.carsTableAdapter = new CarRentalManagement.CarDBDataSet1TableAdapters.CarsTableAdapter();
             this.carDBDataSet11 = new CarRentalManagement.CarDBDataSet1();
             this.customersTableAdapter1 = new CarRentalManagement.CarDBDataSetTableAdapters.CustomersTableAdapter();
+            this.carRentalDBDataSet1 = new CarRentalManagement.CarRentalDBDataSet1();
+            this.carsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.carsTableAdapter1 = new CarRentalManagement.CarRentalDBDataSet1TableAdapters.CarsTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -72,6 +75,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -101,7 +106,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(471, 860);
             this.panel1.TabIndex = 5;
-           
             // 
             // lblcar
             // 
@@ -140,7 +144,6 @@
             this.lblStatus.Size = new System.Drawing.Size(79, 29);
             this.lblStatus.TabIndex = 16;
             this.lblStatus.Text = "Status";
-          
             // 
             // lblDailyRate
             // 
@@ -321,7 +324,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(734, 419);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-           
             // 
             // dataGridView1
             // 
@@ -339,7 +341,7 @@
             this.colorDataGridViewTextBoxColumn,
             this.dailyRateDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.carsBindingSource;
+            this.dataGridView1.DataSource = this.carsBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(471, 425);
             this.dataGridView1.Name = "dataGridView1";
@@ -348,8 +350,6 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(734, 504);
             this.dataGridView1.TabIndex = 7;
-          
-        
             // 
             // carIDDataGridViewTextBoxColumn
             // 
@@ -430,6 +430,20 @@
             // 
             this.customersTableAdapter1.ClearBeforeFill = true;
             // 
+            // carRentalDBDataSet1
+            // 
+            this.carRentalDBDataSet1.DataSetName = "CarRentalDBDataSet1";
+            this.carRentalDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // carsBindingSource1
+            // 
+            this.carsBindingSource1.DataMember = "Cars";
+            this.carsBindingSource1.DataSource = this.carRentalDBDataSet1;
+            // 
+            // carsTableAdapter1
+            // 
+            this.carsTableAdapter1.ClearBeforeFill = true;
+            // 
             // Car
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -452,6 +466,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -493,5 +509,8 @@
         private System.Windows.Forms.Label lblcar;
         private CarDBDataSet1 carDBDataSet11;
         private CarDBDataSetTableAdapters.CustomersTableAdapter customersTableAdapter1;
+        private CarRentalDBDataSet1 carRentalDBDataSet1;
+        private System.Windows.Forms.BindingSource carsBindingSource1;
+        private CarRentalDBDataSet1TableAdapters.CarsTableAdapter carsTableAdapter1;
     }
 }

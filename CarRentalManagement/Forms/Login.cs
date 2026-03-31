@@ -44,7 +44,7 @@ namespace CarRentalManagement
                     Main main = new Main();
                     this.Hide();
                     main.ShowDialog();
-                    this.Show();
+                    this.Close();
                 }
                 else
                 {

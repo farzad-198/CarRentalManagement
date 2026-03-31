@@ -57,6 +57,9 @@
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carDBDataSet = new CarRentalManagement.CarDBDataSet();
             this.customersTableAdapter = new CarRentalManagement.CarDBDataSetTableAdapters.CustomersTableAdapter();
+            this.carRentalDBDataSet = new CarRentalManagement.CarRentalDBDataSet();
+            this.customersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.customersTableAdapter1 = new CarRentalManagement.CarRentalDBDataSetTableAdapters.CustomersTableAdapter();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,6 +67,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -292,7 +297,7 @@
             this.emailDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.customersBindingSource;
+            this.dataGridView1.DataSource = this.customersBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(478, 423);
             this.dataGridView1.Name = "dataGridView1";
@@ -301,8 +306,7 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(661, 366);
             this.dataGridView1.TabIndex = 5;
-          
-          
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // customerIDDataGridViewTextBoxColumn
             // 
@@ -358,6 +362,20 @@
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
             // 
+            // carRentalDBDataSet
+            // 
+            this.carRentalDBDataSet.DataSetName = "CarRentalDBDataSet";
+            this.carRentalDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customersBindingSource1
+            // 
+            this.customersBindingSource1.DataMember = "Customers";
+            this.customersBindingSource1.DataSource = this.carRentalDBDataSet;
+            // 
+            // customersTableAdapter1
+            // 
+            this.customersTableAdapter1.ClearBeforeFill = true;
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -380,6 +398,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,5 +434,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblId;
+        private CarRentalDBDataSet carRentalDBDataSet;
+        private System.Windows.Forms.BindingSource customersBindingSource1;
+        private CarRentalDBDataSetTableAdapters.CustomersTableAdapter customersTableAdapter1;
     }
 }

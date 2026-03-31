@@ -34,9 +34,10 @@ namespace CarRentalManagement
         private IContainer components;
         private CarDBDataSet2TableAdapters.PaymentsTableAdapter paymentsTableAdapter;
         private DataGridViewTextBoxColumn paymentIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn coustomerNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn pymentMethodDataGridViewTextBoxColumn;
+        private CarRentalDBDataSet2 carRentalDBDataSet2;
+        private BindingSource paymentsBindingSource1;
+        private CarRentalDBDataSet2TableAdapters.PaymentsTableAdapter paymentsTableAdapter1;
         private Label lalpay;
 
         public Payment()
@@ -76,13 +77,14 @@ namespace CarRentalManagement
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.paymentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coustomerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pymentMethodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carDBDataSet2 = new CarRentalManagement.CarDBDataSet2();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.paymentsTableAdapter = new CarRentalManagement.CarDBDataSet2TableAdapters.PaymentsTableAdapter();
+            this.carRentalDBDataSet2 = new CarRentalManagement.CarRentalDBDataSet2();
+            this.paymentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.paymentsTableAdapter1 = new CarRentalManagement.CarRentalDBDataSet2TableAdapters.PaymentsTableAdapter();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -90,6 +92,8 @@ namespace CarRentalManagement
             ((System.ComponentModel.ISupportInitialize)(this.paymentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -180,6 +184,7 @@ namespace CarRentalManagement
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -247,7 +252,7 @@ namespace CarRentalManagement
             this.lblCustomerName.ForeColor = System.Drawing.Color.Yellow;
             this.lblCustomerName.Location = new System.Drawing.Point(8, 89);
             this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.Size = new System.Drawing.Size(126, 35);
+            this.lblCustomerName.Size = new System.Drawing.Size(105, 29);
             this.lblCustomerName.TabIndex = 1;
             this.lblCustomerName.Text = "RentalID";
             // 
@@ -271,19 +276,20 @@ namespace CarRentalManagement
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.paymentIDDataGridViewTextBoxColumn,
-            this.coustomerNameDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
-            this.pymentMethodDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.paymentsBindingSource;
+            this.amountDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.paymentsBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Location = new System.Drawing.Point(473, 388);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(688, 302);
@@ -297,26 +303,12 @@ namespace CarRentalManagement
             this.paymentIDDataGridViewTextBoxColumn.Name = "paymentIDDataGridViewTextBoxColumn";
             this.paymentIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // coustomerNameDataGridViewTextBoxColumn
-            // 
-            this.coustomerNameDataGridViewTextBoxColumn.DataPropertyName = "CoustomerName";
-            this.coustomerNameDataGridViewTextBoxColumn.HeaderText = "CoustomerName";
-            this.coustomerNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.coustomerNameDataGridViewTextBoxColumn.Name = "coustomerNameDataGridViewTextBoxColumn";
-            // 
             // amountDataGridViewTextBoxColumn
             // 
             this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
             this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            // 
-            // pymentMethodDataGridViewTextBoxColumn
-            // 
-            this.pymentMethodDataGridViewTextBoxColumn.DataPropertyName = "PymentMethod";
-            this.pymentMethodDataGridViewTextBoxColumn.HeaderText = "PymentMethod";
-            this.pymentMethodDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.pymentMethodDataGridViewTextBoxColumn.Name = "pymentMethodDataGridViewTextBoxColumn";
             // 
             // paymentsBindingSource
             // 
@@ -343,6 +335,20 @@ namespace CarRentalManagement
             // 
             this.paymentsTableAdapter.ClearBeforeFill = true;
             // 
+            // carRentalDBDataSet2
+            // 
+            this.carRentalDBDataSet2.DataSetName = "CarRentalDBDataSet2";
+            this.carRentalDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // paymentsBindingSource1
+            // 
+            this.paymentsBindingSource1.DataMember = "Payments";
+            this.paymentsBindingSource1.DataSource = this.carRentalDBDataSet2;
+            // 
+            // paymentsTableAdapter1
+            // 
+            this.paymentsTableAdapter1.ClearBeforeFill = true;
+            // 
             // Payment
             // 
             this.ClientSize = new System.Drawing.Size(1161, 690);
@@ -362,18 +368,27 @@ namespace CarRentalManagement
             ((System.ComponentModel.ISupportInitialize)(this.paymentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentsBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         private void Payment_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'carRentalDBDataSet2.Payments' table. You can move, or remove it, as needed.
+            this.paymentsTableAdapter1.Fill(this.carRentalDBDataSet2.Payments);
             // TODO: This line of code loads data into the 'carDBDataSet2.Payments' table. You can move, or remove it, as needed.
             this.paymentsTableAdapter.Fill(this.carDBDataSet2.Payments);
 
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
 
         }

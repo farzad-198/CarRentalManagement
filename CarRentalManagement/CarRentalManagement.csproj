@@ -59,6 +59,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarRentalDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarRentalDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CarRentalDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarRentalDBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CarRentalDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarRentalDBDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Cars.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -198,6 +213,39 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="CarRentalDBDataSet.xsc">
+      <DependentUpon>CarRentalDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CarRentalDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarRentalDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CarRentalDBDataSet.xss">
+      <DependentUpon>CarRentalDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CarRentalDBDataSet1.xsc">
+      <DependentUpon>CarRentalDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CarRentalDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarRentalDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CarRentalDBDataSet1.xss">
+      <DependentUpon>CarRentalDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CarRentalDBDataSet2.xsc">
+      <DependentUpon>CarRentalDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="CarRentalDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarRentalDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CarRentalDBDataSet2.xss">
+      <DependentUpon>CarRentalDBDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
@@ -211,10 +259,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_CarRental_DbDataSet.xsc">
+      <DependentUpon>_CarRental_DbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="_CarRental_DbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>_CarRental_DbDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="_CarRental_DbDataSet.xss">
+      <DependentUpon>_CarRental_DbDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

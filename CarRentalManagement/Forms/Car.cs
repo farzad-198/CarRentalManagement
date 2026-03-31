@@ -45,6 +45,8 @@ namespace CarRentalManagement
 
         private void Car_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'carRentalDBDataSet1.Cars' table. You can move, or remove it, as needed.
+            this.carsTableAdapter1.Fill(this.carRentalDBDataSet1.Cars);
             LoadData();
         }
 

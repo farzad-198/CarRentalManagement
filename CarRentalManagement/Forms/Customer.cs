@@ -41,6 +41,8 @@ namespace CarRentalManagement
 
         private void Customer_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'carRentalDBDataSet.Customers' table. You can move, or remove it, as needed.
+            this.customersTableAdapter1.Fill(this.carRentalDBDataSet.Customers);
             LoadData();
         }
 
@@ -93,7 +95,7 @@ namespace CarRentalManagement
                 return;
             }
 
-            int customerId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value);
+            int customerId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
 
             DialogResult result = MessageBox.Show(
                 "Are you sure you want to delete this customer?",
@@ -161,7 +163,7 @@ namespace CarRentalManagement
                 return;
             }
 
-            int customerId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value);
+            int customerId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
 
             using (var db = new CarRentalEntities())
             {
@@ -206,11 +208,11 @@ namespace CarRentalManagement
 
             DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-            lblId.Text = row.Cells["CustomerID"].Value?.ToString();
-            txtCustomerName.Text = row.Cells["CustomerName"].Value?.ToString();
-            txtEmail.Text = row.Cells["Email"].Value?.ToString();
-            txtPhone.Text = row.Cells["Phone"].Value?.ToString();
-            txtAddress.Text = row.Cells["Address"].Value?.ToString();
+            lblId.Text = row.Cells[0].Value?.ToString();
+            txtCustomerName.Text = row.Cells[1].Value?.ToString();
+            txtEmail.Text = row.Cells[2].Value?.ToString();
+            txtPhone.Text = row.Cells[3].Value?.ToString();
+            txtAddress.Text = row.Cells[4].Value?.ToString();
         }
     }
 }
