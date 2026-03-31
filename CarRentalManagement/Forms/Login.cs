@@ -9,6 +9,7 @@ namespace CarRentalManagement
         public Login()
         {
             InitializeComponent();
+            this.AcceptButton = btnLogin; 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -60,6 +61,11 @@ namespace CarRentalManagement
                     );
                 }
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
