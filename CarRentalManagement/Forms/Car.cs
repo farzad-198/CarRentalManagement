@@ -129,7 +129,7 @@ namespace CarRentalManagement
                 return;
             }
 
-            int carId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["CarID"].Value);
+            int carId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
 
             DialogResult result = MessageBox.Show(
                 "Are you sure you want to delete this car?",
@@ -197,7 +197,7 @@ namespace CarRentalManagement
                 return;
             }
 
-            int carId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["CarID"].Value);
+            int carId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
 
             using (var db = new CarRentalEntities())
             {
@@ -259,13 +259,13 @@ namespace CarRentalManagement
 
             DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-            lblcar.Text = row.Cells["CarID"].Value?.ToString();
-            txtCarName.Text = row.Cells["CarName"].Value?.ToString();
-            txtModel.Text = row.Cells["Model"].Value?.ToString();
-            txtplateNumber.Text = row.Cells["PlateNumber"].Value?.ToString();
-            txtColor.Text = row.Cells["Color"].Value?.ToString();
-            txtDailyrate.Text = row.Cells["DailyRate"].Value?.ToString();
-            txtStatus.Text = row.Cells["Status"].Value?.ToString();
+            lblcar.Text = row.Cells[0].Value?.ToString();
+            txtCarName.Text = row.Cells[1].Value?.ToString();
+            txtModel.Text = row.Cells[2].Value?.ToString();
+            txtplateNumber.Text = row.Cells[3].Value?.ToString();
+            txtColor.Text = row.Cells[4].Value?.ToString();
+            txtDailyrate.Text = row.Cells[5].Value?.ToString();
+            txtStatus.Text = row.Cells[6].Value?.ToString();
         }
     }
 }

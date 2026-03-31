@@ -54,21 +54,21 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.carRentalDBDataSet = new CarRentalManagement.CarRentalDBDataSet();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carDBDataSet = new CarRentalManagement.CarDBDataSet();
             this.customersTableAdapter = new CarRentalManagement.CarDBDataSetTableAdapters.CustomersTableAdapter();
-            this.carRentalDBDataSet = new CarRentalManagement.CarRentalDBDataSet();
-            this.customersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.customersTableAdapter1 = new CarRentalManagement.CarRentalDBDataSetTableAdapters.CustomersTableAdapter();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -348,6 +348,16 @@
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             this.addressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // customersBindingSource1
+            // 
+            this.customersBindingSource1.DataMember = "Customers";
+            this.customersBindingSource1.DataSource = this.carRentalDBDataSet;
+            // 
+            // carRentalDBDataSet
+            // 
+            this.carRentalDBDataSet.DataSetName = "CarRentalDBDataSet";
+            this.carRentalDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // customersBindingSource
             // 
             this.customersBindingSource.DataMember = "Customers";
@@ -361,16 +371,6 @@
             // customersTableAdapter
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
-            // 
-            // carRentalDBDataSet
-            // 
-            this.carRentalDBDataSet.DataSetName = "CarRentalDBDataSet";
-            this.carRentalDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // customersBindingSource1
-            // 
-            this.customersBindingSource1.DataMember = "Customers";
-            this.customersBindingSource1.DataSource = this.carRentalDBDataSet;
             // 
             // customersTableAdapter1
             // 
@@ -396,10 +396,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
