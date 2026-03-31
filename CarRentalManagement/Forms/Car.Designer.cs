@@ -114,9 +114,9 @@
             this.lblcar.ForeColor = System.Drawing.Color.Yellow;
             this.lblcar.Location = new System.Drawing.Point(178, 20);
             this.lblcar.Name = "lblcar";
-            this.lblcar.Size = new System.Drawing.Size(81, 32);
+            this.lblcar.Size = new System.Drawing.Size(37, 38);
             this.lblcar.TabIndex = 19;
-            this.lblcar.Text = "label";
+            this.lblcar.Text = "0";
             // 
             // txtStatus
             // 

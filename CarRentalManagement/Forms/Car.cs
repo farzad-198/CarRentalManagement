@@ -252,12 +252,10 @@ namespace CarRentalManagement
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-            {
+            if (dataGridView1.SelectedRows.Count == 0)
                 return;
-            }
 
-            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+            var row = dataGridView1.SelectedRows[0];
 
             lblcar.Text = row.Cells[0].Value?.ToString();
             txtCarName.Text = row.Cells[1].Value?.ToString();

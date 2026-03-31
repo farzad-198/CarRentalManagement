@@ -201,12 +201,12 @@ namespace CarRentalManagement
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
                 return;
             }
 
-            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+            DataGridViewRow row = dataGridView1.Rows[0];
 
             lblId.Text = row.Cells[0].Value?.ToString();
             txtCustomerName.Text = row.Cells[1].Value?.ToString();

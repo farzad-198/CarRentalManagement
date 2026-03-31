@@ -131,9 +131,9 @@
             this.lblId.ForeColor = System.Drawing.Color.Yellow;
             this.lblId.Location = new System.Drawing.Point(199, 28);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(81, 32);
+            this.lblId.Size = new System.Drawing.Size(37, 38);
             this.lblId.TabIndex = 13;
-            this.lblId.Text = "label";
+            this.lblId.Text = "0";
             // 
             // pictureBox2
             // 
